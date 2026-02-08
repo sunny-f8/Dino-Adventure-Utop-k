@@ -147,7 +147,7 @@ button:active {
 
 #touchPad {
   display: none;
-  grid-template-columns: repeat(3, minmax(0, 84px));
+  grid-template-columns: repeat(4, minmax(0, 74px));
   justify-content: center;
   gap: 8px;
   position: absolute;

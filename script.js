@@ -163,7 +163,8 @@
     down: false,
     jumpPressed: false,
     jumpHeld: false,
-    shootPressed: false
+    shootPressed: false,
+    shootHeld: false
   };
 
   const platforms = [];
@@ -1240,6 +1241,7 @@
     input.jumpPressed = false;
     input.jumpHeld = false;
     input.shootPressed = false;
+    input.shootHeld = false;
   }
 
   function prepareLevel(level, keepTimeAndPower = false) {
@@ -1753,7 +1755,7 @@
     }
 
     if (input.down) tryStartPipeTeleport();
-    if (input.shootPressed) {
+    if (input.shootPressed || input.shootHeld) {
       shootPlayerProjectile();
       input.shootPressed = false;
     }
@@ -2552,6 +2554,25 @@
     jumpBtn.addEventListener('pointercancel', () => {
       input.jumpHeld = false;
     });
+
+    const fireBtn = document.getElementById('fireBtn');
+    if (fireBtn) {
+      fireBtn.addEventListener('pointerdown', e => {
+        e.preventDefault();
+        input.shootPressed = true;
+        input.shootHeld = true;
+        tryStartBgm();
+      });
+      fireBtn.addEventListener('pointerup', () => {
+        input.shootHeld = false;
+      });
+      fireBtn.addEventListener('pointerleave', () => {
+        input.shootHeld = false;
+      });
+      fireBtn.addEventListener('pointercancel', () => {
+        input.shootHeld = false;
+      });
+    }
   }
 
   function bindKeyboard() {
@@ -2583,6 +2604,7 @@
       if (k === 'd' || k === 'arrowright') input.right = false;
       if (k === 's' || k === 'arrowdown') input.down = false;
       if (k === 'w' || k === 'arrowup') input.jumpHeld = false;
+      if (k === ' ') input.shootHeld = false;
     });
 
     window.addEventListener('resize', () => {
