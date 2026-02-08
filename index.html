@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dino Survival - Platform Oyunu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="gameShell">
+      <button id="muteBtn" type="button" aria-label="Sesi aç kapa">Ses: Acik</button>
+
+      <header id="hud">
+        <div class="hud-card"><span class="hud-icon score"></span><span class="hud-label">Skor</span><span id="score">0</span></div>
+        <div class="hud-card"><span class="hud-icon best"></span><span class="hud-label">Rekor</span><span id="best">0</span></div>
+        <div class="hud-card"><span class="hud-icon time"></span><span class="hud-label">Bolum</span><span id="levelInfo">1</span></div>
+        <div class="hud-card"><span class="hud-icon coin"></span><span class="hud-label">Coin</span><span id="coins">0</span></div>
+        <div class="hud-card"><span class="hud-icon life"></span><span class="hud-label">Can</span><span id="lives">3</span></div>
+        <div class="hud-card"><span class="hud-icon time"></span><span class="hud-label">Sure</span><span id="time">180</span>s</div>
+      </header>
+
+      <canvas id="gameCanvas" width="960" height="540" aria-label="Platform oyunu"></canvas>
+
+      <section id="menuOverlay" class="overlay">
+        <div class="overlay-card">
+          <h1>Dino Adventure</h1>
+          <div class="menu-actions">
+            <button id="menuStartBtn" type="button">Basla</button>
+            <button id="menuHowBtn" type="button">Nasil Oynanir</button>
+          </div>
+          <div class="menu-select">
+            <span>Bolum Sec</span>
+            <div class="level-buttons">
+              <button class="levelBtn" data-level="1" type="button">1</button>
+              <button class="levelBtn" data-level="2" type="button">2</button>
+              <button class="levelBtn" data-level="3" type="button">3</button>
+            </div>
+          </div>
+          <p id="howToText" class="hidden">
+            Hareket: A/D veya Oklar, Aksiyon: Space, Zipla: W veya Ok Yukari, mobilde ekrandaki butonlar.
+          </p>
+          <small>Ütopik Konsol - Dino Adventure (v1.1)</small>
+        </div>
+      </section>
+
+      <section id="finalOverlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2>Tebrikler</h2>
+          <p>Toplam Puan: <strong id="finalScore">0</strong></p>
+          <p>Rekor: <strong id="finalBest">0</strong></p>
+          <p>Her yolculuk, eve dönmek içindir.</p>
+          <div class="menu-actions">
+            <button id="finalReplayBtn" type="button">Tekrar Oyna</button>
+            <button id="finalMenuBtn" type="button">Menuye Don</button>
+          </div>
+          <small>1.000 abone hediyesi - Ütopik Konsol 💜</small>
+        </div>
+      </section>
+
+      <section id="controls">
+        <button id="startBtn" type="button">Baslat</button>
+        <button id="resetBtn" type="button">Sifirla</button>
+        <button id="pauseBtn" type="button">Duraklat</button>
+      </section>
+
+      <p id="status">Hareket: A/D veya Ok tuslari, ates: Space, zipla: W/Ok Yukari</p>
+
+      <section id="touchPad" aria-label="Mobil kontroller">
+        <button id="leftBtn" type="button">←</button>
+        <button id="jumpBtn" type="button">⤒</button>
+        <button id="rightBtn" type="button">→</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
