@@ -13,10 +13,12 @@
       <header id="hud">
         <div class="hud-card"><span class="hud-icon score"></span><span class="hud-label">Skor</span><span id="score">0</span></div>
         <div class="hud-card"><span class="hud-icon best"></span><span class="hud-label">Rekor</span><span id="best">0</span></div>
+        <div class="hud-card"><span class="hud-icon time"></span><span class="hud-label">Zorluk</span><span id="difficultyInfo">Kolay</span></div>
+        <div class="hud-card"><span class="hud-icon time"></span><span class="hud-label">Combo</span><span id="comboInfo">x1</span></div>
         <div class="hud-card"><span class="hud-icon time"></span><span class="hud-label">Bolum</span><span id="levelInfo">1</span></div>
         <div class="hud-card"><span class="hud-icon coin"></span><span class="hud-label">Coin</span><span id="coins">0</span></div>
         <div class="hud-card"><span class="hud-icon life"></span><span class="hud-label">Can</span><span id="lives">3</span></div>
-        <div class="hud-card"><span class="hud-icon time"></span><span class="hud-label">Sure</span><span id="time">180</span>s</div>
+        <div class="hud-card"><span class="hud-icon time"></span><span class="hud-label">Sure</span><span id="time">100</span>s</div>
       </header>
 
       <canvas id="gameCanvas" width="960" height="540" aria-label="Platform oyunu"></canvas>
@@ -29,16 +31,21 @@
             <button id="menuHowBtn" type="button">Nasil Oynanir</button>
           </div>
           <div class="menu-select">
-            <span>Bolum Sec</span>
-            <div class="level-buttons">
-              <button class="levelBtn" data-level="1" type="button">1</button>
-              <button class="levelBtn" data-level="2" type="button">2</button>
-              <button class="levelBtn" data-level="3" type="button">3</button>
-            </div>
+            <label for="difficultySelect">Zorluk Sec</label>
+            <select id="difficultySelect">
+              <option value="easy">Kolay</option>
+              <option value="medium">Orta</option>
+              <option value="hard">Zor</option>
+            </select>
           </div>
           <p id="howToText" class="hidden">
             Hareket: A/D veya Oklar, Aksiyon: Space, Zipla: W veya Ok Yukari, mobilde ekrandaki butonlar.
           </p>
+          <section id="achievementPanel" class="achievement-panel">
+            <h3>Basarimlar</h3>
+            <ul id="achievementList"></ul>
+            <p id="achievementHint" class="achievement-hint">Bir basarima tikla, nasil alinacagini gosterelim.</p>
+          </section>
           <small>Ütopik Konsol - Dino Adventure (v1.1)</small>
         </div>
       </section>
@@ -48,7 +55,6 @@
           <h2>Tebrikler</h2>
           <p>Toplam Puan: <strong id="finalScore">0</strong></p>
           <p>Rekor: <strong id="finalBest">0</strong></p>
-          <p>Her yolculuk, eve dönmek içindir.</p>
           <div class="menu-actions">
             <button id="finalReplayBtn" type="button">Tekrar Oyna</button>
             <button id="finalMenuBtn" type="button">Menuye Don</button>
