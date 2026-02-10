@@ -1,36 +1,62 @@
-# Dino Adventure 🦖✨
+# Dino Adventure
 
-Küçük bir web oyunu deneyi.  
-Amacı “oyundan çok bir mesaja” varmak:
+Bu proje GitHub Pages ile paylaşım için hazırlanmıştır.
 
-> **Her yolculuk, eve dönmek içindir.**
+## Dosya Yapısı
 
-## 🎮 Oyna
-- Canlı link: **(https://sunny-f8.github.io/Dino-Adventure-Utop-k/)**
+```text
+index.html
+style.css
+script.js
+assets/
+  bgm.mp3
+  jump.wav.mp3
+  win.wav.mp3
+  hit.wav.mp3
+  sprites/
+    *.png
+```
 
-## 🕹️ Kontroller
-**Bilgisayar**
-- Hareket: Ok tuşları / A-D
-- Zıplama: Space
-- Ateş: F
+## GitHub Pages'e Sorunsuz Yükleme (Önerilen)
 
-**Mobil**
-- Ekrandaki butonlar
+1. Yeni bir repo oluşturun.
+2. Bu klasörün **tamamını** yükleyin (`index.html`, `style.css`, `script.js`, `assets/`).
+3. Repo ayarlarından `Pages` bölümünde:
+   - Source: `Deploy from a branch`
+   - Branch: `main` (veya kullandığınız branch)
+   - Folder: `/ (root)`
+4. Birkaç dakika sonra Pages linkini açın.
 
-## ⭐ Özellikler
-- Zorluk seviyesi
-- Başarımlar
-- Süre / puan sistemi
-- Mini boss bölümü
+## Sık Görülen Sorunlar
 
-## 🛠️ Teknoloji
-- HTML / CSS / JavaScript
-- Canvas
+- Oyun açılıyor ama bazı sprite/sesler yok:
+  - Genelde `assets` klasörü eksik veya dosya isimleri farklıdır.
+  - GitHub Pages **case-sensitive** olduğu için dosya adı birebir aynı olmalıdır.
+- Ses efekti var ama bgm yok:
+  - Tarayıcı otomatik oynatmayı engelleyebilir.
+  - Oyunda bir tuşa/butona bastıktan sonra bgm başlayacaktır.
 
-## 📌 Not
-Bu proje öğrenme ve üretme amacıyla yapılmıştır.  
-Geri bildirimlere açığım. 🙂
+## Bu Sürümde Ek Güvence
 
----
-© Ütopik Konsol
+`script.js` içinde asset fallback sistemi var:
+
+- Ses dosyaları için şu yollar sırayla denenir:
+  - `assets/...`
+  - `./` (kök)
+- Sprite dosyaları için şu yollar sırayla denenir:
+  - `assets/sprites/...`
+  - `sprites/...`
+  - `assets/...`
+  - `./` (kök)
+
+Böylece dosyalar yanlış klasöre yüklense bile oyun mümkün olduğunca ayağa kalkar.
+
+Ek olarak asset self-test sayesinde eksik dosyalar konsolda net loglanır:
+
+- `[asset-fallback] ...` (alternatif yola geçti)
+- `[asset-missing] ...` (dosya bulunamadı)
+
+## Lokal Çalıştırma
+
+`index.html` dosyasını açmanız yeterli.
 

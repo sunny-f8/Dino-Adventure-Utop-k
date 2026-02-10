@@ -3218,6 +3218,9 @@
 
     for (const [id, key] of touchMap) {
       const el = document.getElementById(id);
+      el.addEventListener('contextmenu', e => e.preventDefault());
+      el.addEventListener('selectstart', e => e.preventDefault());
+      el.addEventListener('dragstart', e => e.preventDefault());
       el.addEventListener('pointerdown', e => {
         e.preventDefault();
         input[key] = true;
@@ -3234,6 +3237,9 @@
     }
 
     const jumpBtn = document.getElementById('jumpBtn');
+    jumpBtn.addEventListener('contextmenu', e => e.preventDefault());
+    jumpBtn.addEventListener('selectstart', e => e.preventDefault());
+    jumpBtn.addEventListener('dragstart', e => e.preventDefault());
     jumpBtn.addEventListener('pointerdown', e => {
       e.preventDefault();
       input.jumpPressed = true;
@@ -3252,6 +3258,9 @@
 
     const fireBtn = document.getElementById('fireBtn');
     if (fireBtn) {
+      fireBtn.addEventListener('contextmenu', e => e.preventDefault());
+      fireBtn.addEventListener('selectstart', e => e.preventDefault());
+      fireBtn.addEventListener('dragstart', e => e.preventDefault());
       fireBtn.addEventListener('pointerdown', e => {
         e.preventDefault();
         input.shootPressed = true;
